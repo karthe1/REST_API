@@ -12,6 +12,7 @@ public class Profile {
 	
 	public Profile() {
 		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Profile(long profileId, String profileName, String firstName, String lastName) {
