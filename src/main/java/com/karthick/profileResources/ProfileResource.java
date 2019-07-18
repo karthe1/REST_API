@@ -36,7 +36,7 @@ public class ProfileResource {
     }
     
     @GET
-    @Path("/getProfile/{id}")
+    @Path("/getProfiles/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Profile getProfileInfoById(@PathParam("id") Long profileId) {
         return profileService.getProfileInfoById(profileId);
@@ -44,8 +44,12 @@ public class ProfileResource {
     
     @POST
     @Path("/addProfile")
-    public Profile addProfileInfoById(Profile profile) {
-        return profileService.addProfileInfo(profile);
+    public Profile addProfileInfo(Profile profile) {
+        Profile result = profileService.addProfileInfo(profile);
+    	if(result != null) {
+        	return result;
+        }
+    		return null;
     }
     
     @PUT

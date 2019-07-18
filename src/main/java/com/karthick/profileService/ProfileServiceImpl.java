@@ -9,30 +9,18 @@ import com.karthick.profileDataBase.ProfileDBInfo;
 public class ProfileServiceImpl {
 	
 	public static HashMap<Long, Profile> profileInfo = ProfileDBInfo.getProfileInfo();
-	
-	public ProfileServiceImpl() {
-		profileInfo.put(123L, new Profile(123, "karthick_raj", "Karthick", "Rajendran"));
-		profileInfo.put(345L, new Profile(345, "dhana_raj", "Dhanasekaran", "Rajendran"));
-	}
+	public static ProfileDBInfo dbInfo = new ProfileDBInfo();
 	
 	public Collection<Profile> getProfileInfo() {
-		return profileInfo.values();
+		return dbInfo.retrieveRecord();
 	}
 	
 	public Profile getProfileInfoById(Long profileId) {
-		return profileInfo.get(profileId);
+		return dbInfo.retrieveRecordById(profileId);
 	}
 	
 	public Profile addProfileInfo(Profile profile) {
-		profile.setProfileId(profileInfo.size()+1);
-		profileInfo.put(profile.getProfileId(), profile);
-		return profile;
-	}
-	
-	public Profile addProfileInfo1(Profile profile) {
-		profile.setProfileId(profileInfo.size()+1);
-//		profileInfo.put(profile.getProfileId(), profile);
-		boolean profileCreated = ProfileDBInfo.createRecord(profile);
+		boolean profileCreated = dbInfo.createRecord(profile);
 		if (profileCreated) {
 			return profile;	
 		}

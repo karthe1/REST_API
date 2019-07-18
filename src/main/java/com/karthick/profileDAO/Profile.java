@@ -8,18 +8,19 @@ public class Profile {
 	private String profileName;
 	private String firstName;
 	private String lastName;
-	private Date profileCreatedDate = new Date();
+	private Date profileCreatedDate;
 	
 	public Profile() {
 		// TODO Auto-generated constructor stub
 		
 	}
 
-	public Profile(long profileId, String profileName, String firstName, String lastName) {
+	public Profile(long profileId, String profileName, String firstName, String lastName, Date profileCreatedDate) {
 		this.profileId = profileId;
 		this.profileName = profileName;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.profileCreatedDate = profileCreatedDate;
 	}
 	public String getFirstName() {
 		return firstName;
