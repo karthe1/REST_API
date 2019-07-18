@@ -45,9 +45,9 @@ public class ProfileResource {
     @POST
     @Path("/addProfile")
     public Profile addProfileInfo(Profile profile) {
-        Profile result = profileService.addProfileInfo(profile);
-    	if(result != null) {
-        	return result;
+        Profile profileCreated = profileService.addProfileInfo(profile);
+    	if(profileCreated != null) {
+        	return profileCreated;
         }
     		return null;
     }
@@ -58,7 +58,7 @@ public class ProfileResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Profile updateProfileInformation(@PathParam("id") Long profileId, Profile profile) {
     	profile.setProfileId(profileId);
-        return profileService.updateProfileInfo(profileId, profile);
+        return profileService.updateProfileInfo1(profileId, profile);
     }
 
     @DELETE

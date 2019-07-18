@@ -37,8 +37,13 @@ public class ProfileServiceImpl {
 		return null;
 	}
 	
+	public Profile updateProfileInfo1(Long profileId, Profile updateParameter) {
+
+		return dbInfo.updateRecordById(profileId, updateParameter);
+	}
+	
 	public void removeProfileInfo(Long profileId) {
-		profileInfo.remove(profileId);
+		dbInfo.deleteRecordById(profileId);
 	}
 
 }
